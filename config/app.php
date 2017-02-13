@@ -177,6 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Percentile\ServiceProviders\DataSourceServiceProvider::class,
+        Percentile\ServiceProviders\PercentileServiceProvider::class,
 
     ],
 

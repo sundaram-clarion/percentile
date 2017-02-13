@@ -11,8 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('test', 'PercentileController@testData');
+Route::get('/', 'PercentileController@percentileInfo');

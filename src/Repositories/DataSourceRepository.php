@@ -1,5 +1,6 @@
 <?php
 namespace Percentile\Repositories;
+
 use Percentile\Repositories\DataSourceInterface;
 use League\Csv\Reader;
 
@@ -15,7 +16,11 @@ class DataSourceRepository implements DataSourceInterface {
 		//Reading file from where data need to be imported
 		$reader = Reader::createFromPath($file);
 		$results = $reader->fetchAll();
-		return $results;
+		$data = [];
+		foreach ($results as $result) {
+			$data[] = array_map('trim', $result);
+		}
+		return $data;
 	}
 
 }
