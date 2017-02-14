@@ -49,5 +49,3 @@ Routes file is present in routes/web.php. It is used to navigate url to appropri
 
 ### Unit tests
 Php unit test file is present in tests/Unit/PercentileRepositoryTest.php
-
-
