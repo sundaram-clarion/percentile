@@ -1,4 +1,9 @@
 <?php
+/**
+ * PercentileRepository is used to calculate percentile 
+ *
+ * This file implements PercentileInterface to implemet its functions
+ */
 namespace Percentile\Repositories;
 
 use Percentile\Repositories\PercentileInterface;
