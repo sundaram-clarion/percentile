@@ -14,7 +14,14 @@
                     Percentile
                 </h2>
                 <div>
-                    @if (count($students) === 0)
+                    @if (isset($errors) && count($errors) > 0)
+                        @foreach ($errors as $error)
+                            <div>
+                                {{ $error }}
+                            </div>  
+                        @endforeach                      
+                    @endif
+                    @if (isset($students) && count($students) === 0)
                         No students data is present in file
                     @else
                         <table>

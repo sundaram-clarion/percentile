@@ -14,18 +14,22 @@ class DataSourceRepository implements DataSourceInterface {
 	/**
 	 * to get students data
 	 * @param $file string file to be checked for importing data
-	 * @return array
+	 * @return mixed array or boolean
 	 */
 	public function getData($file)
 	{
-		//Reading file from where data need to be imported
-		$reader = Reader::createFromPath($file);
-		$results = $reader->fetchAll();
-		$data = [];
-		foreach ($results as $result) {
-			$data[] = array_map('trim', $result);
-		}
-		return $data;
+		try {
+			//Reading file from where data need to be imported
+			$reader = Reader::createFromPath($file);
+			$results = $reader->fetchAll();
+			$data = [];
+			foreach ($results as $result) {
+				$data[] = array_map('trim', $result);
+			}
+			return $data;
+	    } catch (\Exception $e) {
+	    	return false;
+	    }
 	}
 
 }

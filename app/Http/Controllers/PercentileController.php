@@ -20,13 +20,26 @@ class PercentileController extends Controller
     public function percentileInfo()
     {
     	$studentsData = $this->dataSource->getData(base_path().'/data/data.csv');
+        if (!is_array($studentsData) && $studentsData===false) {
+            return view('percentile', ['students' => [], 'errors' => ['Error occurred while reading file.']]);    
+        }
     	$scoreFrequency = $this->percentile->getInterestFrequency($studentsData);
-        //getting percentile data    
-        $students = [];             
-        foreach ($studentsData as $student) {
-            $percentile = $this->percentile->getPercentile($studentsData, $scoreFrequency, $student[2]); 
-            $students[] = ['id' => $student[0], 'name' => $student[1], 'score' => $student[2], 'percentile' => $percentile];
-        } 
-        return view('percentile', ['students' => $students]);   	
+        if (!is_array($scoreFrequency) && $scoreFrequency===false) {
+            return view('percentile', ['students' => [], 'errors' => ['Data is not in required format.']]);    
+        }        
+        try {
+            //getting percentile data    
+            $students = [];             
+            foreach ($studentsData as $student) {
+                $percentile = $this->percentile->getPercentile($studentsData, $scoreFrequency, $student[2]); 
+                if ($percentile === false) {
+                    throw new Exception("Error occurred while calculating percentile");                    
+                }
+                $students[] = ['id' => $student[0], 'name' => $student[1], 'score' => $student[2], 'percentile' => $percentile];
+            } 
+            return view('percentile', ['students' => $students, 'errors' => []]);   
+        } catch (\Exception $e) {
+            return view('percentile', ['students' => [], 'errors' => ['Error occurred while calculating percentile.']]);
+        }	
     }
 }
