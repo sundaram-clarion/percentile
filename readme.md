@@ -4,7 +4,7 @@ the columns are ID, name, and GPA. The program output will contain
 Id, student name, GPA and calculated percentile rank
                                                                      
 Created by: Sundaram, 2017 
-Click on "Clone or Download" green button and then click on "Download Zip"                                          
+- Click on "Clone or Download" green button and then click on "Download Zip"                                          
 
 ## Contents:
 - Laravel requirements
