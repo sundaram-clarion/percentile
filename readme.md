@@ -49,4 +49,10 @@ view is present in resources/views/percentile.blade.php. It is used to render re
 Routes file is present in routes/web.php. It is used to navigate url to appropriate operation logic.
 
 ### Unit tests
-Php unit test file is present in tests/Unit/PercentileRepositoryTest.php
+Php unit test file is present in 
+- tests/Unit/PercentileRepositoryTest.php
+- tests/Unit/DataSourceRepositoryTest.php
+- tests/Unit/PercentileControllerTest.php
+
+To run individual phpunit file run
+`phpunit tests/Unit/PercentileRepositoryTest.php` from project directory.
