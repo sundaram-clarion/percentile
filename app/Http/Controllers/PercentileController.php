@@ -9,7 +9,7 @@ use Percentile\Repositories\PercentileInterface;
 class PercentileController extends Controller
 {
 	private $dataSource;
-	private $pecentile;
+	private $pecentile; 
 
 	public function __construct(DataSourceInterface $dataSource, PercentileInterface $percentile)
 	{
