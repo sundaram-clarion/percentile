@@ -18,7 +18,7 @@ Created by: Sundaram, 2017
 - Mbstring PHP Extension
 - Tokenizer PHP Extension
 - XML PHP Extension
-- Composer
+- Composer 
 
 ## Installation
 - Get project source code and go to project directory
